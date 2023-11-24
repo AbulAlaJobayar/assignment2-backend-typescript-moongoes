@@ -1,5 +1,9 @@
 import { Schema, model } from 'mongoose';
+import bcrypt from 'bcrypt'
+
 import { IAddress, IFullName, IUser } from '../interface/user.inrerface';
+import config from '../config';
+
 
 const fullNameSchema = new Schema<IFullName>({
   fastName: {
@@ -73,4 +77,16 @@ const userSchema = new Schema<IUser>({
     required: [true, 'please provide your address'],
   },
 });
+userSchema.pre('save', async function(next){
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
+  const user=this;
+  user.password=await bcrypt.hash(user.password,Number(config.bcrypt_sault_round),)
+  next()
+})
+userSchema.post('save', function (doc, next) {
+  doc.password = '';
+  next();
+});
+
+
 export const User = model<IUser>('User', userSchema);

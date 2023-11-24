@@ -5,6 +5,8 @@ const createUser = async (req: Request, res: Response) => {
   try {
     const data = req.body;
     const result = await userServices.createUser(data);
+    console.log(data)
+    console.log(result)
     res.status(201).json({
       success: true,
       message: 'User created successfully!',
@@ -19,7 +21,8 @@ const createUser = async (req: Request, res: Response) => {
 };
 const getAllUsers = async (req: Request, res: Response) => {
   try {
-    const result = await userServices.getAllUsers;
+    const result = await userServices.getAllUsers();
+    console.log(result)
     res.status(201).json({
       success: true,
       message: 'Users fetched successfully!',
@@ -80,17 +83,20 @@ const updateUser = async (req: Request, res: Response) => {
 const deleteUser = async (req: Request, res: Response) => {
   try {
     const id = req.params.userId;
-    const result = await userServices.deleteUser(id);
+    await userServices.deleteUser(id);
     res.status(201).json({
       success: true,
       message: 'User deleted successfully!!',
-      data: result,
+      data: null,
     });
   } catch (error: any) {
     res.status(500).json({
-      success: false,
-      message: error.message || 'something went to wrong',
-    });
+      "success": false,
+    "message": "User not found",
+    "error": {
+        "code": 404,
+        "description": "User not found!"
+    }});
   }
 };
 export const userController = {
