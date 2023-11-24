@@ -3,18 +3,14 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import { userRoutes } from './routes/user.route';
 
-const app:Application = express();
+const app: Application = express();
 
 // middleware
 
 app.use(express.json());
 app.use(cors());
 
-app.use('/api',userRoutes)
-
-
-
-
+app.use('/api', userRoutes);
 
 app.get('/', (req, res) => {
   res.status(200).json({
