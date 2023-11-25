@@ -1,10 +1,10 @@
 import { IUser } from '../interface/user.inrerface';
 import { User } from '../models/user.model';
+import userValidationSchema from '../validation/validation.zod';
 
 const createUser = async (userData: IUser): Promise<IUser> => {
-//    console.log({userData})
-    const result = await User.create(userData);
-// console.log({"service":result})
+   const zodValidation=userValidationSchema.parse(userData)
+    const result = await User.create(zodValidation);
     return result;
 };
 const getAllUsers = async (): Promise<any> => {
@@ -15,7 +15,7 @@ const getAllUsers = async (): Promise<any> => {
         email:1,
         address:1
 
-    })
+     })
     return result;
 };
 const getSingleUser = async (id: string): Promise<IUser | null> => {

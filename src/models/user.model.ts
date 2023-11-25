@@ -67,7 +67,6 @@ const userSchema = new Schema<IUser>({
   },
   isActive: {
     type: Boolean,
-    enum: ['true', 'false'],
     default:true
   },
   hobbies: {
