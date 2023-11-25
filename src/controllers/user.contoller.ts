@@ -4,9 +4,9 @@ import { userServices } from '../services/user.services';
 const createUser = async (req: Request, res: Response) => {
   try {
     const data = req.body;
+    console.log({data})
     const result = await userServices.createUser(data);
-    console.log(data)
-    console.log(result)
+    // console.log({result})
     res.status(201).json({
       success: true,
       message: 'User created successfully!',
@@ -19,6 +19,16 @@ const createUser = async (req: Request, res: Response) => {
     });
   }
 };
+
+
+
+
+
+
+
+
+
+
 const getAllUsers = async (req: Request, res: Response) => {
   try {
     const result = await userServices.getAllUsers();

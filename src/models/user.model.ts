@@ -9,29 +9,29 @@ const fullNameSchema = new Schema<IFullName>({
   fastName: {
     type: String,
     required: [true, 'please provide your first name'],
-    trim: true,
+    
   },
   lastName: {
     type: String,
     required: [true, 'please provide last name'],
-    trim: true,
+   
   },
 });
 const addressSchema = new Schema<IAddress>({
   street: {
     type: String,
     required: [true, 'please provide your street name'],
-    trim: true,
+  
   },
   city: {
     type: String,
     required: [true, 'please provide your city name'],
-    trim: true,
+    
   },
   country: {
     type: String,
     required: [true, 'please provide country name'],
-    trim: true,
+    
   },
 });
 const userSchema = new Schema<IUser>({
@@ -53,21 +53,22 @@ const userSchema = new Schema<IUser>({
   fullName: {
     type: fullNameSchema,
     required: true,
-    trim: true,
+   
   },
   age: {
     type: Number,
     required: true,
-    trim: true,
+    
   },
   email: {
     type: String,
     required: [true, 'please provide valid email'],
-    trim: true,
+    
   },
   isActive: {
     type: Boolean,
     enum: ['true', 'false'],
+    default:true
   },
   hobbies: {
     type: [String],

@@ -2,7 +2,9 @@ import { IUser } from '../interface/user.inrerface';
 import { User } from '../models/user.model';
 
 const createUser = async (userData: IUser): Promise<IUser> => {
+//    console.log({userData})
     const result = await User.create(userData);
+// console.log({"service":result})
     return result;
 };
 const getAllUsers = async (): Promise<any> => {
