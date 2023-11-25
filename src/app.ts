@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 
 import cors from 'cors';
 import { userRoutes } from './routes/user.route';
+import { orderRoute } from './routes/order.route';
 
 const app: Application = express();
 
@@ -10,7 +11,8 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/api', userRoutes);
+app.use('/api/users', userRoutes);
+app.use('api/users/:userId',orderRoute)
 
 app.get('/', (req, res) => {
   res.status(200).json({
