@@ -7,6 +7,11 @@ export interface IAddress {
   city: string;
   country: string;
 }
+export interface IOrders {
+  productName: string;
+  price: number;
+  quantity: number;
+}
 
 export interface IUser {
   userId: number;
@@ -18,4 +23,5 @@ export interface IUser {
   isActive: true | false;
   hobbies: string[];
   address: IAddress;
+  orders?: IOrders;
 }
