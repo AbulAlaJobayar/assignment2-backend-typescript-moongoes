@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Request, Response } from 'express';
 import { userServices } from '../services/user.services';
 import userValidationSchema from '../validation/validation.zod';
@@ -110,8 +112,8 @@ const updateOrder = async (req: Request, res: Response) => {
     const result = await userServices.updateOrder(id, data);
     res.status(201).json({
       success: true,
-      message: 'User updated successfully!',
-      data: result,
+      message: 'Order created successfully!"',
+      data: null,
     });
   } catch (error: any) {
     res.status(404).json({

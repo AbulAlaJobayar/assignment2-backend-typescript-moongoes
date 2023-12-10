@@ -10,7 +10,7 @@ import {
 import config from '../config';
 
 const fullNameSchema = new Schema<IFullName>({
-  fastName: {
+  firstName: {
     type: String,
     required: [true, 'please provide your first name'],
   },
@@ -51,7 +51,7 @@ const userSchema = new Schema<IUser>({
     required: [true, 'please provide unique id'],
     unique: true,
   },
-  userName: {
+  username: {
     type: String,
     required: [true, 'please tell us you name'],
     unique: true,

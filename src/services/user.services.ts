@@ -9,7 +9,7 @@ const createUser = async (userData: IUser): Promise<IUser> => {
 };
 const getAllUsers = async (): Promise<any> => {
   const result = await User.find().select({
-    userName: 1,
+    username: 1,
     fullName: 1,
     age: 1,
     email: 1,

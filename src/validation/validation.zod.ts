@@ -1,6 +1,6 @@
 import { z } from 'zod';
 const fullNameValidationSchema = z.object({
-  fastName: z.string(),
+  firstName: z.string(),
   lastName: z.string(),
 });
 
@@ -17,7 +17,7 @@ const ordersValidationSchema = z.object({
 
 const userValidationSchema = z.object({
   userId: z.number(),
-  userName: z.string(),
+  username: z.string(),
   password: z.string(),
   fullName: fullNameValidationSchema,
   age: z.number(),
